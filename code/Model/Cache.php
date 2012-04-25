@@ -23,23 +23,17 @@ class Aoe_Static_Model_Cache
      **/
     public function collectTags($observer)
     {
-        //cache check if cachable to improve performance
-        $this->isCacheableAction = $this->isCacheableAction
-            && $this->getHelper()->isCacheableAction();
-        if ($this->isCacheableAction) {
-            $block = $observer->getBlock();
-            $tags = array_unique($block->getCacheTags());
-            if ($block instanceof Mage_Cms_Block_Block) {
-                // special handling for static blocks: we cant get the real
-                // id here but only the block alias, so we have to fetch it
-                // later on in fetchTagsForStaticBlocks method
-                $this->staticBlocks[] = $block->getBlockId();
-            } else if ($block instanceof Mage_Cms_Block_Page) {
-                $this->tags[] = 'cms_page_' . $block->getPage()->getPageId();
-            }
-            $this->tags = array_merge($this->tags, $tags);
+        $block = $observer->getBlock();
+        $tags = array_unique($block->getCacheTags());
+        if ($block instanceof Mage_Cms_Block_Block) {
+            // special handling for static blocks: we cant get the real
+            // id here but only the block alias, so we have to fetch it
+            // later on in fetchTagsForStaticBlocks method
+            $this->staticBlocks[] = $block->getBlockId();
+        } else if ($block instanceof Mage_Cms_Block_Page) {
+            $this->tags[] = 'cms_page_' . $block->getPage()->getPageId();
         }
-        return $this;
+        $this->tags = array_merge($this->tags, $tags);
     }
 
     protected function fetchTagsForStaticBlocks($staticBlocks)

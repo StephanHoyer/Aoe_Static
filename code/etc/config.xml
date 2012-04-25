@@ -119,8 +119,9 @@
             <core_block_abstract_to_html_after>
                 <observers>
                     <aoestatic>
-                        <class>aoestatic/cache</class>
-                        <method>collectTags</method>
+                        <class>aoestatic/observer</class>
+                        <type>singleton</type>
+                        <method>htmlAfter</method>
                     </aoestatic>
                 </observers>
             </core_block_abstract_to_html_after>

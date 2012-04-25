@@ -45,6 +45,18 @@ class Aoe_Static_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * Return all block names that are configured to be customer related.
+     *
+     * @return array
+     */
+    public function getCustomerBlocks()
+    {
+        return array_map('trim', explode(',',
+            Mage::getStoreConfig('system/aoe_static/customer_blocks'))
+        );
+    }
+
+    /**
      * Function to determine, if we are in cache context. Returns true, if
      * we are currently building content that will be written to cache.
      *
