@@ -1,5 +1,5 @@
 var isJQ = (typeof jQuery !== 'undefined');
-if (isJQ) $.noConflict();
+if (isJQ) jQuery.noConflict();
 (function() {
   if (typeof AJAXHOME_URL !== 'undefined') {
     return;
