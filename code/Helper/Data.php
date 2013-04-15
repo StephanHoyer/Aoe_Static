@@ -164,7 +164,7 @@ class Aoe_Static_Helper_Data extends Mage_Core_Helper_Abstract
               $ch = curl_init();
               $this->log('Purge url: ' . $url);
               $options = array(
-                  CURLOPT_URL => $purgeHost . $components['path'],
+                  CURLOPT_URL => $url,
                   CURLOPT_HTTPHEADER => array('Host: ' . $components['host'])
               );
 
