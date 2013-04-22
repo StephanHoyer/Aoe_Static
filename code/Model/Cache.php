@@ -201,7 +201,7 @@ class Aoe_Static_Model_Cache
     public function syncronPurge($urls)
     {
         $helper = $this->getHelper();
-        if (!empty($urls)) {
+        if ($urls->count()) {
             $errors = $this->getHelper()->purge($urls);
             if (!empty($errors)) {
                 $msg = $helper->__(
@@ -210,7 +210,7 @@ class Aoe_Static_Model_Cache
                 );
                 Mage::getSingleton('adminhtml/session')->addError($msg);
             } else {
-                $count = count($urls);
+                $count = $urls->count();
                 $msg = $helper->__( "%s sites have been purged.", $count);
                 Mage::getSingleton('adminhtml/session')->addSuccess($msg);
             }
