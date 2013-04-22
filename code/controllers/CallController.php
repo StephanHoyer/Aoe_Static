@@ -40,6 +40,8 @@ class Aoe_Static_CallController extends Mage_Core_Controller_Front_Action
                 if ($tmpBlock) {
                     if($requestedBlockName == 'messages'){
                         $response['blocks'][$id] = $layout->getMessagesBlock()->getGroupedHtml();
+                    }elseif($requestedBlockName == 'global_messages'){
+                        $response['blocks'][$id] = $tmpBlock->getGroupedHtml();
                     }else{
                         $response['blocks'][$id] = $tmpBlock->toHtml();
                     }
