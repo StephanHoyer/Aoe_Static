@@ -72,7 +72,7 @@ class Aoe_Static_Model_Url extends Mage_Core_Model_Abstract
      *
      * @return Aoe_Static_Model_Url
      */
-    protected function deleteExistingTags()
+    public function deleteExistingTags()
     {
         $collection = Mage::getModel('aoestatic/urltag')->getCollection()
             ->addFieldToFilter('url_id', $this->getId());
