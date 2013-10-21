@@ -161,6 +161,10 @@ class Aoe_Static_Helper_Data extends Mage_Core_Helper_Abstract
         foreach ($purgeHosts as $purgeHost) {
           foreach ($urls as $url) {
               $components = parse_url('' . $url);
+
+              // Use purge host instead of store host domain
+              $url = str_replace($components['host'], $purgeHost, $url);
+
               $ch = curl_init();
               $this->log('Purge url: ' . $url);
               $options = array(
