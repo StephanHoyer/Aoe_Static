@@ -83,6 +83,17 @@
                     </aoestatic>
                 </observers>
             </application_clean_cache>
+            
+            <catalog_product_import_finish_before>
+              <observers>
+                <aoestaticAfterimport>
+                  <type>singleton</type>
+                  <class>aoestatic/cache</class>
+                  <method>purgeAfterImport</method>
+                </aoestaticAfterimport>
+              </observers>
+            </catalog_product_import_finish_before>
+            
         </events>
     </global>
     <adminhtml>
