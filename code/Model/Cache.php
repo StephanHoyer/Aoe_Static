@@ -38,7 +38,7 @@ class Aoe_Static_Model_Cache
             $productCollection = $block->getLoadedProductCollection();
             foreach($productCollection as $product) {
                 $tags[] = 'catalog_product_' . $product->getId();
-            }
+            }p
         } else if ($block instanceof Mage_Catalog_Block_Category_View) {
             $tags[] = 'catalog_category_' . $block->getCurrentCategory()->getId();
         }
@@ -172,6 +172,32 @@ class Aoe_Static_Model_Cache
         $tags = array_diff($tags, $neverPurgeTheseTags);
         $urls = Mage::getModel('aoestatic/url')->getUrlsByTagStrings($tags);
         $this->purge($urls, $priority);
+    }
+
+    /**
+     * Check imported Products and purge cache for them ...
+     */
+    public function purgeAfterImport($observer)
+    {
+        $SKUs = $observer->getEvent()->getAdapter()->getNewSku();
+
+        $tags = array();
+        foreach ($SKUs as $sku => $data)
+        {
+            $product = Mage::getModel("catalog/product")->load($data['entity_id']);
+            $ptags = $product->getCacheTags();
+            foreach ( $ptags as $tag )
+            {
+                if ( !in_array($tag, $tags) )
+                {
+                    $tags[] = $ptags;
+                }
+            }
+        }
+        Mage::dispatchEvent(
+            'application_clean_cache',
+            array('tags' => $tags)
+        );
     }
 
     /**
