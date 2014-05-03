@@ -95,6 +95,12 @@
             </catalog_product_import_finish_before>
             
         </events>
+	<rewrite>
+           <aoe_static_checkout_cart_add>
+              <from><![CDATA[#^/checkout/cart/add/.*$#]]></from>
+              <to>/phone/checkout_cart/add/</to>
+           </aoe_static_checkout_cart_add>
+        </rewrite>
     </global>
     <adminhtml>
         <events>
