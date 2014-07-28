@@ -1,0 +1,15 @@
+{
+    "name": "aoe/static",
+    "type": "magento-module",
+    "description": "This modules adds advanced varnish functionalitiy to your Magento shop.",
+    "license": "unknown",
+    "authors": [
+        {
+            "name": "Stephan Hoyer",
+            "email": "ste.hoyer@gmail.com"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
