@@ -21,7 +21,7 @@
                     <fields>
                         <cache_actions translate="label">
                             <label>Cacheable actions</label>
-                            <comment><![CDATA[Commaseparated list of <b>"&lt;route&gt;_&lt;controller&gt;_&lt;action&gt;;&lt;lifeTimeInSeconds&gt;" </b> The output generated from these actions will be cached by Varnish.]]>
+                            <comment><![CDATA[Comma-separated list of <b>"&lt;route&gt;_&lt;controller&gt;_&lt;action&gt;;&lt;lifeTimeInSeconds&gt;" </b> The output generated from these actions will be cached by Varnish.]]>
                             </comment>
                             <frontend_type>textarea</frontend_type>
                             <sort_order>100</sort_order>
@@ -31,7 +31,7 @@
                         </cache_actions>
                         <purge_hosts translate="label">
                             <label>Hosts to purge</label>
-                            <comment><![CDATA[Enter the IPs of the varnish servers where the purge requests should be posted on. Seperated by linebreaks. Leave empty to use store url.]]></comment>
+                            <comment><![CDATA[Enter the IPs of the varnish servers where the purge requests should be posted on. Separated by linebreaks. Leave empty to use store url.]]></comment>
                             <frontend_type>textarea</frontend_type>
                             <sort_order>250</sort_order>
                             <show_in_default>1</show_in_default>
@@ -40,7 +40,7 @@
                         </purge_hosts>
                         <purge_syncroniously translate="label">
                             <label>Purge synconiously</label>
-                            <comment><![CDATA[If on, cache is purge imidiatly upon magento cache refesh, if off, cache is only marked to be purged and a cron job will do the dirty work.]]>
+                            <comment><![CDATA[If on, cache is purge immediately upon magento cache refesh; if off, cache is only marked to be purged and a cron job will do the dirty work.]]>
                             </comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -51,7 +51,7 @@
                         </purge_syncroniously>
                         <auto_rebuild_cache translate="label">
                             <label>Auto rebuild cache</label>
-                            <comment><![CDATA[ATTENTION! This does not work in syncron mode. Varnish-Cache is not only purged but will be recreated so that customer always gets cached content.]]>
+                            <comment><![CDATA[ATTENTION! This does not work in synchronous mode. Varnish cache is not only purged, but will be recreated so that customer always gets cached content.]]>
                             </comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -62,7 +62,7 @@
                         </auto_rebuild_cache>
                         <page_size translate="label">
                             <label>Number of purges at once</label>
-                            <comment><![CDATA[in asyncronious mode]]>
+                            <comment><![CDATA[in asynchronous mode]]>
                             </comment>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
@@ -73,7 +73,7 @@
                         </page_size>
                         <page_count translate="label">
                             <label>Number of pages to process every cron run</label>
-                            <comment><![CDATA[in asyncronious mode]]>
+                            <comment><![CDATA[in asynchronous mode]]>
                             </comment>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
@@ -89,7 +89,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <comment><![CDATA[Comma separated list of all blocks that should be refreshed via AJAX request. You can also add a static block that is sent to cache instead of regular content separated by semicollon.<br />e. G. top.links;top_links_template]]></comment>
+                            <comment><![CDATA[Comma-separated list of all blocks that should be refreshed via AJAX request. You can also add a static block that is sent to cache instead of regular content, separated by semicolon.<br />e. G. top.links;top_links_template]]></comment>
                         </customer_blocks>
                     </fields>
                 </aoe_static>
