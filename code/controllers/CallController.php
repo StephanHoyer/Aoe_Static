@@ -16,7 +16,9 @@ class Aoe_Static_CallController extends Mage_Core_Controller_Front_Action
      */
     public function indexAction()
     {
-        // if (!$this->getRequest()->isXmlHttpRequest()) { Mage::throwException('This is not an XmlHttpRequest'); }
+        if (!$this->getRequest()->isXmlHttpRequest()) {
+            return $this->_redirect('/');
+        }
 
         $response = array();
         $response['sid'] = Mage::getModel('core/session')->getEncryptedSessionId();
