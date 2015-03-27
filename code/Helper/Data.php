@@ -120,7 +120,7 @@ class Aoe_Static_Helper_Data extends Mage_Core_Helper_Abstract
         $conn = Mage::getSingleton('core/resource')->getConnection('core_write');
         foreach (array('url', 'tag', 'urltag') as $table) {
             $resource = Mage::getResourceModel('aoestatic/' . $table);
-            $conn->query(sprintf('TRUNCATE %s;', $resource->getMainTable()));
+            $conn->query(sprintf('DELETE FROM %s;', $resource->getMainTable()));
         }
         return $this->purge(array($baseUrl . '.*'));
     }
