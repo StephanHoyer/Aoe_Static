@@ -83,7 +83,24 @@
                     </aoestatic>
                 </observers>
             </application_clean_cache>
+            
+            <catalog_product_import_finish_before>
+              <observers>
+                <aoestaticAfterimport>
+                  <type>singleton</type>
+                  <class>aoestatic/cache</class>
+                  <method>purgeAfterImport</method>
+                </aoestaticAfterimport>
+              </observers>
+            </catalog_product_import_finish_before>
+            
         </events>
+	<rewrite>
+           <aoe_static_checkout_cart_add>
+              <from><![CDATA[#^/checkout/cart/add/.*$#]]></from>
+              <to>/phone/checkout_cart/add/</to>
+           </aoe_static_checkout_cart_add>
+        </rewrite>
     </global>
     <adminhtml>
         <events>
